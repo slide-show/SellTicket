@@ -52,6 +52,8 @@ namespace SellTicket
             sql = "select m.MovieID,m.MovieName,addtime,m.MovieImage from MovieInfo M join Movieaddtime T on M.MovieID =T.MovieId where datediff( day, SYSDATETIME(),t.addtime) >  0 order by t.addtime";
             ds = helper.GetDataSet(sql);
             dt = ds.Tables[0];
+            if (!(dt.Rows.Count > 0))
+                return;
             dr = dt.Rows[0];
             pictureBox4.Image = Image.FromFile(Convert.ToString(dr["MovieImage"]));
             label5.Text = Convert.ToString(dr["MovieName"]);

@@ -21,7 +21,7 @@ namespace SellTicket
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.LogImg.Image = Image.FromStream(WebRequest.Create("http://ssr0.cn:8000/ACG").GetResponse().GetResponseStream());          
+            this.LogImg.Image = Image.FromFile(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "/Content\\login.png");        
         }
         public string Name;
         public int UserID;
